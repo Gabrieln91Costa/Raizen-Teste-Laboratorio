@@ -1,0 +1,178 @@
+[2022-08-25 00:06:58,056] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: Raizen.Step_011_Ingestion_Sheets_To_Stage scheduled__2022-08-22T15:00:00+00:00 [queued]>
+[2022-08-25 00:06:58,095] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: Raizen.Step_011_Ingestion_Sheets_To_Stage scheduled__2022-08-22T15:00:00+00:00 [queued]>
+[2022-08-25 00:06:58,095] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-25 00:06:58,098] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-25 00:06:58,098] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-25 00:06:58,152] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): Step_011_Ingestion_Sheets_To_Stage> on 2022-08-22 15:00:00+00:00
+[2022-08-25 00:06:58,165] {standard_task_runner.py:52} INFO - Started process 120 to run task
+[2022-08-25 00:06:58,177] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'Raizen', 'Step_011_Ingestion_Sheets_To_Stage', 'scheduled__2022-08-22T15:00:00+00:00', '--job-id', '9863', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmpwt95tynl', '--error-file', '/tmp/tmphbtp1uji']
+[2022-08-25 00:06:58,181] {standard_task_runner.py:80} INFO - Job 9863: Subtask Step_011_Ingestion_Sheets_To_Stage
+[2022-08-25 00:06:58,429] {task_command.py:371} INFO - Running <TaskInstance: Raizen.Step_011_Ingestion_Sheets_To_Stage scheduled__2022-08-22T15:00:00+00:00 [running]> on host a341554e0e18
+[2022-08-25 00:06:58,780] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=Raizen
+AIRFLOW_CTX_TASK_ID=Step_011_Ingestion_Sheets_To_Stage
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-22T15:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-22T15:00:00+00:00
+[2022-08-25 00:10:26,407] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1783, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqldb.py", line 193, in do_executemany
+    rowcount = cursor.executemany(statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 179, in executemany
+    self._get_db().encoding,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 206, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1317, 'Query execution was interrupted')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1418, in run_transaction
+    yield tx
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 967, in insert
+    exec_insert(conn, keys, chunk_iter)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 882, in _execute_insert
+    conn.execute(self.table.insert(), data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1289, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 326, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1491, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2027, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1783, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqldb.py", line 193, in do_executemany
+    rowcount = cursor.executemany(statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 179, in executemany
+    self._get_db().encoding,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 206, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1317, 'Query execution was interrupted')
+[SQL: INSERT INTO stg_vendas_combustiveis (`COMBUSTÍVEL`, `ANO`, `REGIÃO`, `ESTADO`, `Jan`, `Fev`, `Mar`, `Abr`, `Mai`, `Jun`, `Jul`, `Ago`, `September`, `October`, `Nov`, `Dez`, `TOTAL`) VALUES (%(COMBUSTÍVEL)s, %(ANO)s, %(REGIÃO)s, %(ESTADO)s, %(Jan)s, %(Fev)s, %(Mar)s, %(Abr)s, %(Mai)s, %(Jun)s, %(Jul)s, %(Ago)s, %(September)s, %(October)s, %(Nov)s, %(Dez)s, %(TOTAL)s)]
+[parameters: ({'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'RONDÔNIA', 'Jan': 136073.25300000003, 'Fev': 9563.263, 'Mar': 11341.229, 'Abr': 9369.746, 'Mai': 10719.983, 'Jun': 11165.968, 'Jul': 12312.451, 'Ago': 11220.97, 'September': 12482.281, 'October': 13591.122, 'Nov': 11940.57, 'Dez': 11547.576, 'TOTAL': 10818.094}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'ACRE', 'Jan': 3358.346, 'Fev': 40001.852999999996, 'Mar': 3065.758, 'Abr': 3495.29, 'Mai': 2946.93, 'Jun': 3023.92, 'Jul': 3206.93, 'Ago': 3612.58, 'September': 3264.46, 'October': 3835.74, 'Nov': 3676.571, 'Dez': 3225.61, 'TOTAL': 3289.718}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'AMAZONAS', 'Jan': 20766.918, 'Fev': 21180.919, 'Mar': 242742.35199999998, 'Abr': 17615.604, 'Mai': 20258.2, 'Jun': 18741.344, 'Jul': 19604.023, 'Ago': 20221.674, 'September': 20792.616, 'October': 19912.898, 'Nov': 21869.338, 'Dez': 21145.643, 'TOTAL': 20633.175}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'RORAIMA', 'Jan': 3716.032, 'Fev': 3200.4, 'Mar': 3339.332, 'Abr': 43338.92900000001, 'Mai': 3259.3, 'Jun': 3636.216, 'Jul': 3631.569, 'Ago': 3348.416, 'September': 3394.016, 'October': 4078.616, 'Nov': 3346.616, 'Dez': 4029.9, 'TOTAL': 4358.516}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'PARÁ', 'Jan': 29755.907, 'Fev': 28661.951, 'Mar': 28145.784, 'Abr': 29294.796, 'Mai': 359575.3979999999, 'Jun': 28830.479, 'Jul': 32297.047, 'Ago': 27310.979, 'September': 29396.384, 'October': 26511.009, 'Nov': 36553.25, 'Dez': 31807.84, 'TOTAL': 31009.972}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'AMAPÁ', 'Jan': 4096.7, 'Fev': 4374.2, 'Mar': 3917.75, 'Abr': 3779.9, 'Mai': 4068.216, 'Jun': 46255.816000000006, 'Jul': 3456.35, 'Ago': 4092.25, 'September': 3395.6, 'October': 3613.7, 'Nov': 3533.05, 'Dez': 4387.1, 'TOTAL': 3541.0}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'TOCANTINS', 'Jan': 8046.45, 'Fev': 7734.34, 'Mar': 8267.903, 'Abr': 7398.315, 'Mai': 7153.283, 'Jun': 7522.171, 'Jul': 89082.367, 'Ago': 6961.518, 'September': 7027.916, 'October': 6616.28, 'Nov': 6699.691, 'Dez': 7174.92, 'TOTAL': 8479.58}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORDESTE', 'ESTADO': 'MARANHÃO', 'Jan': 19185.495, 'Fev': 18027.96, 'Mar': 18185.91, 'Abr': 19684.36, 'Mai': 17944.756, 'Jun': 17643.608, 'Jul': 17730.675, 'Ago': 211092.697, 'September': 16751.08, 'October': 17985.405, 'Nov': 15357.75, 'Dez': 15875.728, 'TOTAL': 16719.97}  ... displaying 10 of 4536 total bound parameter sets ...  {'COMBUSTÍVEL': 'GLP (m3)', 'ANO': 2020, 'REGIÃO': 'REGIÃO CENTRO-OESTE', 'ESTADO': 'GOIÁS', 'Jan': 53302.086956521736, 'Fev': 48894.62137681159, 'Mar': 47184.78804347826, 'Abr': 49687.793478260865, 'Mai': 52665.44927536231, 'Jun': 50069.0054347826, 'Jul': 48032.53079710145, 'Ago': None, 'September': None, 'October': None, 'Nov': 443268.7391304347, 'Dez': 46850.58514492753, 'TOTAL': 46581.8786231884}, {'COMBUSTÍVEL': 'GLP (m3)', 'ANO': 2020, 'REGIÃO': 'REGIÃO CENTRO-OESTE', 'ESTADO': 'DISTRITO FEDERAL', 'Jan': 13883.065217391302, 'Fev': 16011.333333333332, 'Mar': 15887.492753623188, 'Abr': 13463.27536231884, 'Mai': 15325.704710144926, 'Jun': 15689.914855072462, 'Jul': 15358.490942028984, 'Ago': 13937.451086956522, 'September': None, 'October': None, 'Nov': None, 'Dez': 133282.7028985507, 'TOTAL': 13725.974637681158})]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 966, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 669, in do_rollback
+    dbapi_connection.rollback()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 480, in rollback
+    self._read_ok_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 443, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 692, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 749, in _read_bytes
+    CR.CR_SERVER_LOST, "Lost connection to MySQL server during query"
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/raizen_lab_01.py", line 37, in Step_011_Ingestion_Sheets_To_Stage
+    df_sheet_01.to_sql('stg_vendas_combustiveis', engine, index=False, if_exists='append')
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1770, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1350, in insert_records
+    raise err
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1340, in insert_records
+    table.insert(chunksize=chunksize, method=method)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 967, in insert
+    exec_insert(conn, keys, chunk_iter)
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1420, in run_transaction
+    yield self.connectable
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2982, in __exit__
+    self.transaction.__exit__(type_, value, traceback)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/util.py", line 230, in __exit__
+    self.rollback()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in rollback
+    self._do_rollback()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2537, in _do_rollback
+    self._close_impl(try_deactivate=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2520, in _close_impl
+    self._connection_rollback_impl()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2512, in _connection_rollback_impl
+    self.connection._rollback_impl()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 968, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2027, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 966, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 669, in do_rollback
+    dbapi_connection.rollback()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 480, in rollback
+    self._read_ok_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 443, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 692, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 749, in _read_bytes
+    CR.CR_SERVER_LOST, "Lost connection to MySQL server during query"
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2013, 'Lost connection to MySQL server during query')
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2022-08-25 00:10:26,544] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=Raizen, task_id=Step_011_Ingestion_Sheets_To_Stage, execution_date=20220822T150000, start_date=20220825T000658, end_date=20220825T001026
+[2022-08-25 00:10:26,613] {standard_task_runner.py:97} ERROR - Failed to execute job 9863 for task Step_011_Ingestion_Sheets_To_Stage ((pymysql.err.OperationalError) (2013, 'Lost connection to MySQL server during query')
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 120)
+[2022-08-25 00:10:26,669] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-25 00:10:26,908] {dagrun.py:1081} ERROR - Failed to get task '<TaskInstance: Raizen.Step_01_Ingestion_Sheets_To_Stage scheduled__2022-08-22T15:00:00+00:00 [removed]>' for dag 'Raizen'. Marking it as removed.
+[2022-08-25 00:10:26,960] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-08-25 00:10:27,070] {dagrun.py:1081} ERROR - Failed to get task '<TaskInstance: Raizen.Step_01_Ingestion_Sheets_To_Stage scheduled__2022-08-22T15:00:00+00:00 [removed]>' for dag 'Raizen'. Marking it as removed.

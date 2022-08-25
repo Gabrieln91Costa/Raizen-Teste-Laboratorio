@@ -1,0 +1,37 @@
+[2022-08-24 02:01:04,636] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.carga_arquivo scheduled__2022-08-24T01:00:00+00:00 [queued]>
+[2022-08-24 02:01:04,654] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.carga_arquivo scheduled__2022-08-24T01:00:00+00:00 [queued]>
+[2022-08-24 02:01:04,654] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-24 02:01:04,655] {taskinstance.py:1377} INFO - Starting attempt 2 of 2
+[2022-08-24 02:01:04,656] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-24 02:01:04,692] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): carga_arquivo> on 2022-08-24 01:00:00+00:00
+[2022-08-24 02:01:04,715] {standard_task_runner.py:52} INFO - Started process 99 to run task
+[2022-08-24 02:01:04,721] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'carga_arquivo', 'scheduled__2022-08-24T01:00:00+00:00', '--job-id', '9652', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmpvndeanop', '--error-file', '/tmp/tmp0aag4je5']
+[2022-08-24 02:01:04,723] {standard_task_runner.py:80} INFO - Job 9652: Subtask carga_arquivo
+[2022-08-24 02:01:04,847] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.carga_arquivo scheduled__2022-08-24T01:00:00+00:00 [running]> on host b8d797566373
+[2022-08-24 02:01:04,980] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=carga_arquivo
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-24T01:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-24T01:00:00+00:00
+[2022-08-24 02:01:06,446] {logging_mixin.py:115} INFO -        ANO
+0     2000
+1     2000
+2     2000
+3     2000
+4     2000
+...    ...
+4531  2020
+4532  2020
+4533  2020
+4534  2020
+4535  2020
+
+[4536 rows x 1 columns]
+[2022-08-24 02:01:06,604] {python.py:173} INFO - Done. Returned value was: None
+[2022-08-24 02:01:06,624] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=raizen_lab_01, task_id=carga_arquivo, execution_date=20220824T010000, start_date=20220824T020104, end_date=20220824T020106
+[2022-08-24 02:01:06,661] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-08-24 02:01:06,720] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

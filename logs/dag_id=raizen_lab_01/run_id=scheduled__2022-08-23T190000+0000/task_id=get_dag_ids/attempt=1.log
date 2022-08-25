@@ -1,0 +1,25 @@
+[2022-08-23 20:03:51,605] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.get_dag_ids scheduled__2022-08-23T19:00:00+00:00 [queued]>
+[2022-08-23 20:03:51,620] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.get_dag_ids scheduled__2022-08-23T19:00:00+00:00 [queued]>
+[2022-08-23 20:03:51,620] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 20:03:51,621] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-23 20:03:51,623] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 20:03:51,642] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): get_dag_ids> on 2022-08-23 19:00:00+00:00
+[2022-08-23 20:03:51,651] {standard_task_runner.py:52} INFO - Started process 291 to run task
+[2022-08-23 20:03:51,655] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'get_dag_ids', 'scheduled__2022-08-23T19:00:00+00:00', '--job-id', '9380', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmp3nfbj92p', '--error-file', '/tmp/tmpx6g004ln']
+[2022-08-23 20:03:51,658] {standard_task_runner.py:80} INFO - Job 9380: Subtask get_dag_ids
+[2022-08-23 20:03:51,772] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.get_dag_ids scheduled__2022-08-23T19:00:00+00:00 [running]> on host 80fce776ee1f
+[2022-08-23 20:03:51,873] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=get_dag_ids
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-23T19:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-23T19:00:00+00:00
+[2022-08-23 20:03:51,884] {base.py:68} INFO - Using connection ID '***_db' for task execution.
+[2022-08-23 20:03:51,891] {logging_mixin.py:115} INFO - [('example_branch_python_operator_decorator',), ('tutorial_taskflow_api_etl',), ('lab1',), ('tutorial',), ('example_bash_operator',), ('example_local_kubernetes_executor',), ('example_dag_decorator',), ('latest_only',), ('example_passing_params_via_test_command',), ('example_kubernetes_executor',), ('example_sla_dag',), ('example_xcom',), ('example_task_group',), ('example_complex',), ('example_branch_datetime_operator',), ('example_task_group_decorator',), ('example_branch_labels',), ('example_skip_dag',), ('example_python_operator',), ('tutorial_taskflow_api_etl_virtualenv',), ('example_nested_branch_dag',), ('example_time_delta_sensor_async',), ('example_xcom_args_with_operators',), ('example_short_circuit_operator',), ('example_subdag_operator.section-1',), ('tutorial_etl_dag',), ('example_weekday_branch_operator',), ('example_branch_operator',), ('example_branch_datetime_operator_2',), ('example_branch_dop_operator_v3',), ('example_trigger_controller_dag',), ('latest_only_with_trigger',), ('example_trigger_target_dag',), ('example_subdag_operator',), ('example_subdag_operator.section-2',), ('raizen_lab_01',), ('example_external_task_marker_child',), ('example_external_task_marker_parent',), ('example_xcom_args',)]
+[2022-08-23 20:03:51,891] {python.py:173} INFO - Done. Returned value was: None
+[2022-08-23 20:03:51,928] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=raizen_lab_01, task_id=get_dag_ids, execution_date=20220823T190000, start_date=20220823T200351, end_date=20220823T200351
+[2022-08-23 20:03:51,949] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-08-23 20:03:52,004] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

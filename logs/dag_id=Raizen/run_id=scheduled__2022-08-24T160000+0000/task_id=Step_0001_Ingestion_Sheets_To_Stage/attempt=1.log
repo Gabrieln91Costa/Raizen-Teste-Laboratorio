@@ -1,0 +1,19 @@
+[2022-08-25 00:50:51,913] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: Raizen.Step_0001_Ingestion_Sheets_To_Stage scheduled__2022-08-24T16:00:00+00:00 [queued]>
+[2022-08-25 00:50:51,921] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: Raizen.Step_0001_Ingestion_Sheets_To_Stage scheduled__2022-08-24T16:00:00+00:00 [queued]>
+[2022-08-25 00:50:51,921] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-25 00:50:51,923] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-25 00:50:51,923] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-25 00:50:51,984] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): Step_0001_Ingestion_Sheets_To_Stage> on 2022-08-24 16:00:00+00:00
+[2022-08-25 00:50:51,988] {standard_task_runner.py:52} INFO - Started process 80 to run task
+[2022-08-25 00:50:51,991] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'Raizen', 'Step_0001_Ingestion_Sheets_To_Stage', 'scheduled__2022-08-24T16:00:00+00:00', '--job-id', '9957', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmp393ievnf', '--error-file', '/tmp/tmpgemjiuvy']
+[2022-08-25 00:50:51,993] {standard_task_runner.py:80} INFO - Job 9957: Subtask Step_0001_Ingestion_Sheets_To_Stage
+[2022-08-25 00:50:52,110] {task_command.py:371} INFO - Running <TaskInstance: Raizen.Step_0001_Ingestion_Sheets_To_Stage scheduled__2022-08-24T16:00:00+00:00 [running]> on host 13dbd97417da
+[2022-08-25 00:50:52,266] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=Raizen
+AIRFLOW_CTX_TASK_ID=Step_0001_Ingestion_Sheets_To_Stage
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-24T16:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-24T16:00:00+00:00

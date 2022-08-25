@@ -1,0 +1,131 @@
+[2022-08-24 02:00:01,420] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.carga_arquivo scheduled__2022-08-24T01:00:00+00:00 [queued]>
+[2022-08-24 02:00:01,433] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.carga_arquivo scheduled__2022-08-24T01:00:00+00:00 [queued]>
+[2022-08-24 02:00:01,433] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-24 02:00:01,434] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-24 02:00:01,435] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-24 02:00:01,454] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): carga_arquivo> on 2022-08-24 01:00:00+00:00
+[2022-08-24 02:00:01,461] {standard_task_runner.py:52} INFO - Started process 172 to run task
+[2022-08-24 02:00:01,466] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'carga_arquivo', 'scheduled__2022-08-24T01:00:00+00:00', '--job-id', '9646', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmptacjelpo', '--error-file', '/tmp/tmpv93lewh2']
+[2022-08-24 02:00:01,467] {standard_task_runner.py:80} INFO - Job 9646: Subtask carga_arquivo
+[2022-08-24 02:00:01,568] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.carga_arquivo scheduled__2022-08-24T01:00:00+00:00 [running]> on host b8d797566373
+[2022-08-24 02:00:01,682] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=carga_arquivo
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-24T01:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-24T01:00:00+00:00
+[2022-08-24 02:00:02,982] {logging_mixin.py:115} INFO -        ANO
+0     2000
+1     2000
+2     2000
+3     2000
+4     2000
+...    ...
+4531  2020
+4532  2020
+4533  2020
+4534  2020
+4535  2020
+
+[4536 rows x 1 columns]
+[2022-08-24 02:00:03,063] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1783, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqldb.py", line 193, in do_executemany
+    rowcount = cursor.executemany(statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 179, in executemany
+    self._get_db().encoding,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 211, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.DataError: (1406, "Data too long for column 'ano' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/raizen_lab_01.py", line 46, in carga_arquivo
+    df.to_sql('modelo', engine, index=False, if_exists='append')
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1770, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1350, in insert_records
+    raise err
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1340, in insert_records
+    table.insert(chunksize=chunksize, method=method)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 967, in insert
+    exec_insert(conn, keys, chunk_iter)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 882, in _execute_insert
+    conn.execute(self.table.insert(), data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1289, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 326, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1491, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2027, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1783, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqldb.py", line 193, in do_executemany
+    rowcount = cursor.executemany(statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 179, in executemany
+    self._get_db().encoding,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 211, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.DataError: (pymysql.err.DataError) (1406, "Data too long for column 'ano' at row 1")
+[SQL: INSERT INTO modelo (`ANO`) VALUES (%(ANO)s)]
+[parameters: ({'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}  ... displaying 10 of 4536 total bound parameter sets ...  {'ANO': 2020}, {'ANO': 2020})]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+[2022-08-24 02:00:03,095] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=raizen_lab_01, task_id=carga_arquivo, execution_date=20220824T010000, start_date=20220824T020001, end_date=20220824T020003
+[2022-08-24 02:00:03,118] {standard_task_runner.py:97} ERROR - Failed to execute job 9646 for task carga_arquivo ((pymysql.err.DataError) (1406, "Data too long for column 'ano' at row 1")
+[SQL: INSERT INTO modelo (`ANO`) VALUES (%(ANO)s)]
+[parameters: ({'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}, {'ANO': 2000}  ... displaying 10 of 4536 total bound parameter sets ...  {'ANO': 2020}, {'ANO': 2020})]
+(Background on this error at: https://sqlalche.me/e/14/9h9h); 172)
+[2022-08-24 02:00:03,166] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-24 02:00:03,251] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

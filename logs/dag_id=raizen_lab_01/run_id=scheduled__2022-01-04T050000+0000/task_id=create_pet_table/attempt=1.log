@@ -1,0 +1,36 @@
+[2022-08-23 14:28:04,768] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.create_pet_table scheduled__2022-01-04T05:00:00+00:00 [queued]>
+[2022-08-23 14:28:04,775] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.create_pet_table scheduled__2022-01-04T05:00:00+00:00 [queued]>
+[2022-08-23 14:28:04,775] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 14:28:04,776] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-23 14:28:04,776] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 14:28:04,787] {taskinstance.py:1397} INFO - Executing <Task(PostgresOperator): create_pet_table> on 2022-01-04 05:00:00+00:00
+[2022-08-23 14:28:04,792] {standard_task_runner.py:52} INFO - Started process 183 to run task
+[2022-08-23 14:28:04,795] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'create_pet_table', 'scheduled__2022-01-04T05:00:00+00:00', '--job-id', '7929', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmp7gtwb_rg', '--error-file', '/tmp/tmplcpotik7']
+[2022-08-23 14:28:04,796] {standard_task_runner.py:80} INFO - Job 7929: Subtask create_pet_table
+[2022-08-23 14:28:04,852] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.create_pet_table scheduled__2022-01-04T05:00:00+00:00 [running]> on host 8a76026b9f9c
+[2022-08-23 14:28:04,914] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=create_pet_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-04T05:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-01-04T05:00:00+00:00
+[2022-08-23 14:28:04,930] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/operators/postgres.py", line 92, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 204, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 86, in get_conn
+    conn = deepcopy(self.connection or self.get_connection(conn_id))
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 67, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 430, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres_default` isn't defined
+[2022-08-23 14:28:04,933] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=raizen_lab_01, task_id=create_pet_table, execution_date=20220104T050000, start_date=20220823T142804, end_date=20220823T142804
+[2022-08-23 14:28:04,942] {standard_task_runner.py:97} ERROR - Failed to execute job 7929 for task create_pet_table (The conn_id `postgres_default` isn't defined; 183)
+[2022-08-23 14:28:04,967] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-23 14:28:04,998] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

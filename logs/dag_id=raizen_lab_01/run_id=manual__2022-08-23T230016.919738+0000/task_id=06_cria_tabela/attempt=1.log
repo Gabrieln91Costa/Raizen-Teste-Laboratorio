@@ -1,0 +1,24 @@
+[2022-08-23 23:00:18,406] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.06_cria_tabela manual__2022-08-23T23:00:16.919738+00:00 [queued]>
+[2022-08-23 23:00:18,430] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.06_cria_tabela manual__2022-08-23T23:00:16.919738+00:00 [queued]>
+[2022-08-23 23:00:18,431] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 23:00:18,433] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-23 23:00:18,433] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 23:00:18,460] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): 06_cria_tabela> on 2022-08-23 23:00:16.919738+00:00
+[2022-08-23 23:00:18,468] {standard_task_runner.py:52} INFO - Started process 81 to run task
+[2022-08-23 23:00:18,473] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', '06_cria_tabela', 'manual__2022-08-23T23:00:16.919738+00:00', '--job-id', '9469', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmp_12_2rm4', '--error-file', '/tmp/tmpsp1ggcc1']
+[2022-08-23 23:00:18,477] {standard_task_runner.py:80} INFO - Job 9469: Subtask 06_cria_tabela
+[2022-08-23 23:00:18,560] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.06_cria_tabela manual__2022-08-23T23:00:16.919738+00:00 [running]> on host 25dd15f8d678
+[2022-08-23 23:00:18,618] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=06_cria_tabela
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-23T23:00:16.919738+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-08-23T23:00:16.919738+00:00
+[2022-08-23 23:00:18,635] {logging_mixin.py:115} INFO - TABELA CRIADA
+[2022-08-23 23:00:18,635] {python.py:173} INFO - Done. Returned value was: None
+[2022-08-23 23:00:18,646] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=raizen_lab_01, task_id=06_cria_tabela, execution_date=20220823T230016, start_date=20220823T230018, end_date=20220823T230018
+[2022-08-23 23:00:18,686] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-08-23 23:00:18,726] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

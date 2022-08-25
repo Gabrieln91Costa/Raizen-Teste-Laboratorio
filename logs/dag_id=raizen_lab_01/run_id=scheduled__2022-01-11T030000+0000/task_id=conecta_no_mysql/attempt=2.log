@@ -1,0 +1,32 @@
+[2022-08-23 17:09:01,545] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.conecta_no_mysql scheduled__2022-01-11T03:00:00+00:00 [queued]>
+[2022-08-23 17:09:01,556] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.conecta_no_mysql scheduled__2022-01-11T03:00:00+00:00 [queued]>
+[2022-08-23 17:09:01,556] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 17:09:01,557] {taskinstance.py:1377} INFO - Starting attempt 2 of 2
+[2022-08-23 17:09:01,557] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 17:09:01,579] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): conecta_no_mysql> on 2022-01-11 03:00:00+00:00
+[2022-08-23 17:09:01,588] {standard_task_runner.py:52} INFO - Started process 1258 to run task
+[2022-08-23 17:09:01,592] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'conecta_no_mysql', 'scheduled__2022-01-11T03:00:00+00:00', '--job-id', '8415', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmpoc8b1n8x', '--error-file', '/tmp/tmpk_dmb317']
+[2022-08-23 17:09:01,594] {standard_task_runner.py:80} INFO - Job 8415: Subtask conecta_no_mysql
+[2022-08-23 17:09:01,678] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.conecta_no_mysql scheduled__2022-01-11T03:00:00+00:00 [running]> on host 7861d16bbe1f
+[2022-08-23 17:09:01,763] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=conecta_no_mysql
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-11T03:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-01-11T03:00:00+00:00
+[2022-08-23 17:09:01,782] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/raizen_lab_01.py", line 36, in conecta_no_mysql
+    con.select_db('CREATE TABLE db.TESTE(COL1 VARCHAR(40))')
+MySQLdb.OperationalError: (1044, "Access denied for user 'user'@'%' to database 'create table db.teste(col1 varchar(40))'")
+[2022-08-23 17:09:01,794] {taskinstance.py:1420} INFO - Marking task as FAILED. dag_id=raizen_lab_01, task_id=conecta_no_mysql, execution_date=20220111T030000, start_date=20220823T170901, end_date=20220823T170901
+[2022-08-23 17:09:01,811] {standard_task_runner.py:97} ERROR - Failed to execute job 8415 for task conecta_no_mysql ((1044, "Access denied for user 'user'@'%' to database 'create table db.teste(col1 varchar(40))'"); 1258)
+[2022-08-23 17:09:01,844] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-23 17:09:01,900] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

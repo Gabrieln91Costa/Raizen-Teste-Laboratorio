@@ -1,0 +1,35 @@
+[2022-08-23 20:14:31,914] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.cria_tabela manual__2022-08-23T20:09:28.304623+00:00 [queued]>
+[2022-08-23 20:14:31,923] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.cria_tabela manual__2022-08-23T20:09:28.304623+00:00 [queued]>
+[2022-08-23 20:14:31,923] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 20:14:31,924] {taskinstance.py:1377} INFO - Starting attempt 2 of 2
+[2022-08-23 20:14:31,925] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 20:14:31,940] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): cria_tabela> on 2022-08-23 20:09:28.304623+00:00
+[2022-08-23 20:14:31,945] {standard_task_runner.py:52} INFO - Started process 390 to run task
+[2022-08-23 20:14:31,948] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'cria_tabela', 'manual__2022-08-23T20:09:28.304623+00:00', '--job-id', '9391', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmpys18u33d', '--error-file', '/tmp/tmpwik07rmd']
+[2022-08-23 20:14:31,950] {standard_task_runner.py:80} INFO - Job 9391: Subtask cria_tabela
+[2022-08-23 20:14:32,022] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.cria_tabela manual__2022-08-23T20:09:28.304623+00:00 [running]> on host 80fce776ee1f
+[2022-08-23 20:14:32,096] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=cria_tabela
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-23T20:09:28.304623+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-08-23T20:09:28.304623+00:00
+[2022-08-23 20:14:32,109] {base.py:68} INFO - Using connection ID '***_db' for task execution.
+[2022-08-23 20:14:32,116] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/raizen_lab_01.py", line 33, in cria_tabela
+    records = postgres_hook.get_records(sql="CREATE TABLE detalhe_de_vendas ( year_month	date not null, uf varchar(2),product varchar(256),unit varchar(256),volume NUMERIC(15,2),created_at	timestamp default NULL) PARTITION BY RANGE (year_month)")
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/dbapi.py", line 163, in get_records
+    return cur.fetchall()
+psycopg2.ProgrammingError: no results to fetch
+[2022-08-23 20:14:32,130] {taskinstance.py:1420} INFO - Marking task as FAILED. dag_id=raizen_lab_01, task_id=cria_tabela, execution_date=20220823T200928, start_date=20220823T201431, end_date=20220823T201432
+[2022-08-23 20:14:32,143] {standard_task_runner.py:97} ERROR - Failed to execute job 9391 for task cria_tabela (no results to fetch; 390)
+[2022-08-23 20:14:32,161] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-23 20:14:32,204] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

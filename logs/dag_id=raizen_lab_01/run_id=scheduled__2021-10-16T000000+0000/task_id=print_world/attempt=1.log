@@ -1,0 +1,24 @@
+[2022-08-23 11:45:56,870] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.print_world scheduled__2021-10-16T00:00:00+00:00 [queued]>
+[2022-08-23 11:45:56,901] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.print_world scheduled__2021-10-16T00:00:00+00:00 [queued]>
+[2022-08-23 11:45:56,902] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 11:45:56,903] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-23 11:45:56,904] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 11:45:56,937] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): print_world> on 2021-10-16 00:00:00+00:00
+[2022-08-23 11:45:56,944] {standard_task_runner.py:52} INFO - Started process 156 to run task
+[2022-08-23 11:45:56,952] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'print_world', 'scheduled__2021-10-16T00:00:00+00:00', '--job-id', '2056', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmpy3urkiga', '--error-file', '/tmp/tmp8qx34aer']
+[2022-08-23 11:45:56,953] {standard_task_runner.py:80} INFO - Job 2056: Subtask print_world
+[2022-08-23 11:45:57,139] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.print_world scheduled__2021-10-16T00:00:00+00:00 [running]> on host fc645605a611
+[2022-08-23 11:45:57,277] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=print_world
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-10-16T00:00:00+00:00
+[2022-08-23 11:45:57,280] {logging_mixin.py:115} INFO - world
+[2022-08-23 11:45:57,280] {python.py:173} INFO - Done. Returned value was: None
+[2022-08-23 11:45:57,362] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=raizen_lab_01, task_id=print_world, execution_date=20211016T000000, start_date=20220823T114556, end_date=20220823T114557
+[2022-08-23 11:45:57,408] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-08-23 11:45:57,509] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

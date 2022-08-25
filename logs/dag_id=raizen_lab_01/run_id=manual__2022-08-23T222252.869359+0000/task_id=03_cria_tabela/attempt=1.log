@@ -1,0 +1,33 @@
+[2022-08-23 22:29:34,887] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.03_cria_tabela manual__2022-08-23T22:22:52.869359+00:00 [queued]>
+[2022-08-23 22:29:34,899] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.03_cria_tabela manual__2022-08-23T22:22:52.869359+00:00 [queued]>
+[2022-08-23 22:29:34,900] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 22:29:34,900] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-23 22:29:34,901] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 22:29:34,918] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): 03_cria_tabela> on 2022-08-23 22:22:52.869359+00:00
+[2022-08-23 22:29:34,925] {standard_task_runner.py:52} INFO - Started process 229 to run task
+[2022-08-23 22:29:34,929] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', '03_cria_tabela', 'manual__2022-08-23T22:22:52.869359+00:00', '--job-id', '9434', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmp4ul3xg09', '--error-file', '/tmp/tmpw2_csytq']
+[2022-08-23 22:29:34,930] {standard_task_runner.py:80} INFO - Job 9434: Subtask 03_cria_tabela
+[2022-08-23 22:29:35,000] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.03_cria_tabela manual__2022-08-23T22:22:52.869359+00:00 [running]> on host 80fce776ee1f
+[2022-08-23 22:29:35,075] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=03_cria_tabela
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-23T22:22:52.869359+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-08-23T22:22:52.869359+00:00
+[2022-08-23 22:29:35,096] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/raizen_lab_01.py", line 35, in cria_tabela
+    con.select_db('select * from db.tabela_de_deus')
+MySQLdb.OperationalError: (1049, "Unknown database 'select * from db.tabela_de_deus'")
+[2022-08-23 22:29:35,110] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=raizen_lab_01, task_id=03_cria_tabela, execution_date=20220823T222252, start_date=20220823T222934, end_date=20220823T222935
+[2022-08-23 22:29:35,122] {standard_task_runner.py:97} ERROR - Failed to execute job 9434 for task 03_cria_tabela ((1049, "Unknown database 'select * from db.tabela_de_deus'"); 229)
+[2022-08-23 22:29:35,141] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-23 22:29:35,169] {dagrun.py:1081} ERROR - Failed to get task '<TaskInstance: raizen_lab_01.02_cria_tabela manual__2022-08-23T22:22:52.869359+00:00 [removed]>' for dag 'raizen_lab_01'. Marking it as removed.
+[2022-08-23 22:29:35,179] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

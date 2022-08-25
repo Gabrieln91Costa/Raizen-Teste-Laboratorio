@@ -1,0 +1,36 @@
+[2022-08-23 22:24:26,794] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.02_cria_tabela manual__2022-08-23T22:19:23.370053+00:00 [queued]>
+[2022-08-23 22:24:26,803] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.02_cria_tabela manual__2022-08-23T22:19:23.370053+00:00 [queued]>
+[2022-08-23 22:24:26,804] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 22:24:26,805] {taskinstance.py:1377} INFO - Starting attempt 2 of 2
+[2022-08-23 22:24:26,805] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 22:24:26,817] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): 02_cria_tabela> on 2022-08-23 22:19:23.370053+00:00
+[2022-08-23 22:24:26,825] {standard_task_runner.py:52} INFO - Started process 149 to run task
+[2022-08-23 22:24:26,828] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', '02_cria_tabela', 'manual__2022-08-23T22:19:23.370053+00:00', '--job-id', '9428', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmp61wo51z0', '--error-file', '/tmp/tmpskxsahrp']
+[2022-08-23 22:24:26,830] {standard_task_runner.py:80} INFO - Job 9428: Subtask 02_cria_tabela
+[2022-08-23 22:24:26,892] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.02_cria_tabela manual__2022-08-23T22:19:23.370053+00:00 [running]> on host 80fce776ee1f
+[2022-08-23 22:24:26,960] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=02_cria_tabela
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-23T22:19:23.370053+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-08-23T22:19:23.370053+00:00
+[2022-08-23 22:24:26,964] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/raizen_lab_01.py", line 34, in cria_tabela
+    con = MySQLdb.connect(host="localhost", user="user", passwd="password", db="db")
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2002, "Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)")
+[2022-08-23 22:24:26,976] {taskinstance.py:1420} INFO - Marking task as FAILED. dag_id=raizen_lab_01, task_id=02_cria_tabela, execution_date=20220823T221923, start_date=20220823T222426, end_date=20220823T222426
+[2022-08-23 22:24:26,987] {standard_task_runner.py:97} ERROR - Failed to execute job 9428 for task 02_cria_tabela ((2002, "Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)"); 149)
+[2022-08-23 22:24:27,001] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-23 22:24:27,043] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,37 @@
+[2022-08-23 12:24:08,371] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.print_world scheduled__2021-11-17T22:00:00+00:00 [queued]>
+[2022-08-23 12:24:08,383] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.print_world scheduled__2021-11-17T22:00:00+00:00 [queued]>
+[2022-08-23 12:24:08,384] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 12:24:08,384] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-23 12:24:08,385] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 12:24:08,405] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): print_world> on 2021-11-17 22:00:00+00:00
+[2022-08-23 12:24:08,413] {standard_task_runner.py:52} INFO - Started process 3564 to run task
+[2022-08-23 12:24:08,416] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'print_world', 'scheduled__2021-11-17T22:00:00+00:00', '--job-id', '4446', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmpdhytf2e4', '--error-file', '/tmp/tmp1fc3tqa9']
+[2022-08-23 12:24:08,418] {standard_task_runner.py:80} INFO - Job 4446: Subtask print_world
+[2022-08-23 12:24:08,493] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.print_world scheduled__2021-11-17T22:00:00+00:00 [running]> on host 6383a3236c72
+[2022-08-23 12:24:08,578] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=print_world
+AIRFLOW_CTX_EXECUTION_DATE=2021-11-17T22:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-11-17T22:00:00+00:00
+[2022-08-23 12:24:09,801] {logging_mixin.py:115} INFO -           COMBUSTÍVEL   ANO  ...            Dez         TOTAL
+0     GASOLINA C (m3)  2000  ...   11547.576000  10818.094000
+1     GASOLINA C (m3)  2000  ...    3225.610000   3289.718000
+2     GASOLINA C (m3)  2000  ...   21145.643000  20633.175000
+3     GASOLINA C (m3)  2000  ...    4029.900000   4358.516000
+4     GASOLINA C (m3)  2000  ...   31807.840000  31009.972000
+...               ...   ...  ...            ...           ...
+4531         GLP (m3)  2020  ...   64045.161232  66749.367754
+4532         GLP (m3)  2020  ...   16281.139493  15037.528986
+4533         GLP (m3)  2020  ...   18321.987319  20677.483696
+4534         GLP (m3)  2020  ...   46850.585145  46581.878623
+4535         GLP (m3)  2020  ...  133282.702899  13725.974638
+
+[4536 rows x 17 columns]
+[2022-08-23 12:24:09,801] {python.py:173} INFO - Done. Returned value was: None
+[2022-08-23 12:24:09,818] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=raizen_lab_01, task_id=print_world, execution_date=20211117T220000, start_date=20220823T122408, end_date=20220823T122409
+[2022-08-23 12:24:09,877] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-08-23 12:24:09,909] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

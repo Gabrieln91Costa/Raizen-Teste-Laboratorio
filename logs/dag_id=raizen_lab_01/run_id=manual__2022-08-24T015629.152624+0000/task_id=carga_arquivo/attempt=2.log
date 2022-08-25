@@ -1,0 +1,56 @@
+[2022-08-24 01:57:34,392] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.carga_arquivo manual__2022-08-24T01:56:29.152624+00:00 [queued]>
+[2022-08-24 01:57:34,406] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.carga_arquivo manual__2022-08-24T01:56:29.152624+00:00 [queued]>
+[2022-08-24 01:57:34,407] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-24 01:57:34,408] {taskinstance.py:1377} INFO - Starting attempt 2 of 2
+[2022-08-24 01:57:34,409] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-24 01:57:34,431] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): carga_arquivo> on 2022-08-24 01:56:29.152624+00:00
+[2022-08-24 01:57:34,437] {standard_task_runner.py:52} INFO - Started process 131 to run task
+[2022-08-24 01:57:34,442] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'carga_arquivo', 'manual__2022-08-24T01:56:29.152624+00:00', '--job-id', '9641', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmpaw6uondi', '--error-file', '/tmp/tmp3ut_o64m']
+[2022-08-24 01:57:34,444] {standard_task_runner.py:80} INFO - Job 9641: Subtask carga_arquivo
+[2022-08-24 01:57:34,525] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.carga_arquivo manual__2022-08-24T01:56:29.152624+00:00 [running]> on host b8d797566373
+[2022-08-24 01:57:34,616] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=carga_arquivo
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-24T01:56:29.152624+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-08-24T01:56:29.152624+00:00
+[2022-08-24 01:57:35,587] {logging_mixin.py:115} INFO -        ANO
+0     2000
+1     2000
+2     2000
+3     2000
+4     2000
+...    ...
+4531  2020
+4532  2020
+4533  2020
+4534  2020
+4535  2020
+
+[4536 rows x 1 columns]
+[2022-08-24 01:57:35,634] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/raizen_lab_01.py", line 46, in carga_arquivo
+    df.to_sql('modelo', engine, index=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1758, in to_sql
+    dtype=dtype,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1650, in prep_table
+    table.create()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 858, in create
+    raise ValueError(f"Table '{self.name}' already exists.")
+ValueError: Table 'modelo' already exists.
+[2022-08-24 01:57:35,657] {taskinstance.py:1420} INFO - Marking task as FAILED. dag_id=raizen_lab_01, task_id=carga_arquivo, execution_date=20220824T015629, start_date=20220824T015734, end_date=20220824T015735
+[2022-08-24 01:57:35,706] {standard_task_runner.py:97} ERROR - Failed to execute job 9641 for task carga_arquivo (Table 'modelo' already exists.; 131)
+[2022-08-24 01:57:35,742] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-24 01:57:35,855] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

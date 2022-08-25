@@ -1,0 +1,27 @@
+[2022-08-23 12:05:57,024] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.sleep scheduled__2021-10-25T12:00:00+00:00 [queued]>
+[2022-08-23 12:05:57,033] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.sleep scheduled__2021-10-25T12:00:00+00:00 [queued]>
+[2022-08-23 12:05:57,034] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 12:05:57,034] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-23 12:05:57,039] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 12:05:57,051] {taskinstance.py:1397} INFO - Executing <Task(BashOperator): sleep> on 2021-10-25 12:00:00+00:00
+[2022-08-23 12:05:57,055] {standard_task_runner.py:52} INFO - Started process 321 to run task
+[2022-08-23 12:05:57,058] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'sleep', 'scheduled__2021-10-25T12:00:00+00:00', '--job-id', '2712', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmp4nkdb5s_', '--error-file', '/tmp/tmp3sx7ku_j']
+[2022-08-23 12:05:57,058] {standard_task_runner.py:80} INFO - Job 2712: Subtask sleep
+[2022-08-23 12:05:57,112] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.sleep scheduled__2021-10-25T12:00:00+00:00 [running]> on host 67b6bdae536e
+[2022-08-23 12:05:57,164] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=sleep
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-25T12:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-10-25T12:00:00+00:00
+[2022-08-23 12:05:57,165] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-08-23 12:05:57,166] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'sleep 5']
+[2022-08-23 12:05:57,183] {subprocess.py:85} INFO - Output:
+[2022-08-23 12:06:02,186] {subprocess.py:96} INFO - Command exited with return code 0
+[2022-08-23 12:06:02,242] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=raizen_lab_01, task_id=sleep, execution_date=20211025T120000, start_date=20220823T120557, end_date=20220823T120602
+[2022-08-23 12:06:02,282] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-08-23 12:06:02,307] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

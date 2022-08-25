@@ -1,0 +1,73 @@
+[2022-08-23 13:11:05,787] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.sleep scheduled__2021-12-28T11:00:00+00:00 [queued]>
+[2022-08-23 13:11:05,796] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.sleep scheduled__2021-12-28T11:00:00+00:00 [queued]>
+[2022-08-23 13:11:05,797] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 13:11:05,797] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-23 13:11:05,798] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 13:11:05,810] {taskinstance.py:1397} INFO - Executing <Task(BashOperator): sleep> on 2021-12-28 11:00:00+00:00
+[2022-08-23 13:11:05,814] {standard_task_runner.py:52} INFO - Started process 1063 to run task
+[2022-08-23 13:11:05,817] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'sleep', 'scheduled__2021-12-28T11:00:00+00:00', '--job-id', '7333', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmp7ov9hhv8', '--error-file', '/tmp/tmpce74s67z']
+[2022-08-23 13:11:05,818] {standard_task_runner.py:80} INFO - Job 7333: Subtask sleep
+[2022-08-23 13:11:05,869] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.sleep scheduled__2021-12-28T11:00:00+00:00 [running]> on host 965856c951e3
+[2022-08-23 13:11:05,930] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=sleep
+AIRFLOW_CTX_EXECUTION_DATE=2021-12-28T11:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-12-28T11:00:00+00:00
+[2022-08-23 13:11:05,931] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-08-23 13:11:05,932] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'sleep 5']
+[2022-08-23 13:11:05,942] {subprocess.py:85} INFO - Output:
+[2022-08-23 13:11:10,945] {subprocess.py:96} INFO - Command exited with return code 0
+[2022-08-23 13:11:10,972] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=raizen_lab_01, task_id=sleep, execution_date=20211228T110000, start_date=20220823T131105, end_date=20220823T131110
+[2022-08-23 13:11:11,013] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-08-23 13:11:11,044] {local_task_job.py:281} INFO - Skipping mini scheduling run due to exception: None
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 998, in _commit_impl
+    self.engine.dialect.do_commit(self.connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 672, in do_commit
+    dbapi_connection.commit()
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/jobs/local_task_job.py", line 272, in _run_mini_scheduler_on_child_tasks
+    num = dag_run.schedule_tis(schedulable_tis)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 71, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/usr/local/lib/python3.7/contextlib.py", line 119, in __exit__
+    next(self.gen)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 33, in create_session
+    session.commit()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 836, in commit
+    trans.commit()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2361, in commit
+    self._do_commit()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2544, in _do_commit
+    self._connection_commit_impl()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2515, in _connection_commit_impl
+    self.connection._commit_impl()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1000, in _commit_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2027, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 998, in _commit_impl
+    self.engine.dialect.do_commit(self.connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 672, in do_commit
+    dbapi_connection.commit()
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)

@@ -1,0 +1,23 @@
+[2022-08-24 17:00:04,999] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.Step_02_Ingestion_Stage_To_Analitics scheduled__2022-08-24T16:00:00+00:00 [queued]>
+[2022-08-24 17:00:05,007] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.Step_02_Ingestion_Stage_To_Analitics scheduled__2022-08-24T16:00:00+00:00 [queued]>
+[2022-08-24 17:00:05,008] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-24 17:00:05,008] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-24 17:00:05,008] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-24 17:00:05,023] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): Step_02_Ingestion_Stage_To_Analitics> on 2022-08-24 16:00:00+00:00
+[2022-08-24 17:00:05,030] {standard_task_runner.py:52} INFO - Started process 1286 to run task
+[2022-08-24 17:00:05,033] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'Step_02_Ingestion_Stage_To_Analitics', 'scheduled__2022-08-24T16:00:00+00:00', '--job-id', '9771', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmps74tj84x', '--error-file', '/tmp/tmp8i14ah0w']
+[2022-08-24 17:00:05,035] {standard_task_runner.py:80} INFO - Job 9771: Subtask Step_02_Ingestion_Stage_To_Analitics
+[2022-08-24 17:00:05,101] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.Step_02_Ingestion_Stage_To_Analitics scheduled__2022-08-24T16:00:00+00:00 [running]> on host 3f878792eb1e
+[2022-08-24 17:00:05,157] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=Step_02_Ingestion_Stage_To_Analitics
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-24T16:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-24T16:00:00+00:00
+[2022-08-24 17:00:20,820] {python.py:173} INFO - Done. Returned value was: None
+[2022-08-24 17:00:20,832] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=raizen_lab_01, task_id=Step_02_Ingestion_Stage_To_Analitics, execution_date=20220824T160000, start_date=20220824T170005, end_date=20220824T170020
+[2022-08-24 17:00:20,860] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-08-24 17:00:20,882] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

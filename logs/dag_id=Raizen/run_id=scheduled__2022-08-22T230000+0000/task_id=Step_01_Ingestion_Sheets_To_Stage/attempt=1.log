@@ -1,0 +1,117 @@
+[2022-08-25 00:17:32,451] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: Raizen.Step_01_Ingestion_Sheets_To_Stage scheduled__2022-08-22T23:00:00+00:00 [queued]>
+[2022-08-25 00:17:32,574] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: Raizen.Step_01_Ingestion_Sheets_To_Stage scheduled__2022-08-22T23:00:00+00:00 [queued]>
+[2022-08-25 00:17:32,574] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-25 00:17:32,575] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-25 00:17:32,576] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-25 00:17:32,616] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): Step_01_Ingestion_Sheets_To_Stage> on 2022-08-22 23:00:00+00:00
+[2022-08-25 00:17:32,622] {standard_task_runner.py:52} INFO - Started process 248 to run task
+[2022-08-25 00:17:32,625] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'Raizen', 'Step_01_Ingestion_Sheets_To_Stage', 'scheduled__2022-08-22T23:00:00+00:00', '--job-id', '9901', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmpsxadbcy7', '--error-file', '/tmp/tmpo369z60p']
+[2022-08-25 00:17:32,626] {standard_task_runner.py:80} INFO - Job 9901: Subtask Step_01_Ingestion_Sheets_To_Stage
+[2022-08-25 00:17:32,703] {task_command.py:371} INFO - Running <TaskInstance: Raizen.Step_01_Ingestion_Sheets_To_Stage scheduled__2022-08-22T23:00:00+00:00 [running]> on host 7c75bca1d9e0
+[2022-08-25 00:17:32,898] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=Raizen
+AIRFLOW_CTX_TASK_ID=Step_01_Ingestion_Sheets_To_Stage
+AIRFLOW_CTX_EXECUTION_DATE=2022-08-22T23:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-08-22T23:00:00+00:00
+[2022-08-25 00:18:28,451] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1783, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqldb.py", line 193, in do_executemany
+    rowcount = cursor.executemany(statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 179, in executemany
+    self._get_db().encoding,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 206, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1205, 'Lock wait timeout exceeded; try restarting transaction')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/raizen_lab_01.py", line 37, in Step_01_Ingestion_Sheets_To_Stage
+    df_sheet_01.to_sql('stg_vendas_combustiveis', engine, index=False, if_exists='append')
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1770, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1350, in insert_records
+    raise err
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1340, in insert_records
+    table.insert(chunksize=chunksize, method=method)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 967, in insert
+    exec_insert(conn, keys, chunk_iter)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 882, in _execute_insert
+    conn.execute(self.table.insert(), data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1289, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 326, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1491, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2027, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1783, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqldb.py", line 193, in do_executemany
+    rowcount = cursor.executemany(statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 179, in executemany
+    self._get_db().encoding,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 206, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1205, 'Lock wait timeout exceeded; try restarting transaction')
+[SQL: INSERT INTO stg_vendas_combustiveis (`COMBUSTÍVEL`, `ANO`, `REGIÃO`, `ESTADO`, `Jan`, `Fev`, `Mar`, `Abr`, `Mai`, `Jun`, `Jul`, `Ago`, `September`, `October`, `Nov`, `Dez`, `TOTAL`) VALUES (%(COMBUSTÍVEL)s, %(ANO)s, %(REGIÃO)s, %(ESTADO)s, %(Jan)s, %(Fev)s, %(Mar)s, %(Abr)s, %(Mai)s, %(Jun)s, %(Jul)s, %(Ago)s, %(September)s, %(October)s, %(Nov)s, %(Dez)s, %(TOTAL)s)]
+[parameters: ({'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'RONDÔNIA', 'Jan': 136073.25300000003, 'Fev': 9563.263, 'Mar': 11341.229, 'Abr': 9369.746, 'Mai': 10719.983, 'Jun': 11165.968, 'Jul': 12312.451, 'Ago': 11220.97, 'September': 12482.281, 'October': 13591.122, 'Nov': 11940.57, 'Dez': 11547.576, 'TOTAL': 10818.094}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'ACRE', 'Jan': 3358.346, 'Fev': 40001.852999999996, 'Mar': 3065.758, 'Abr': 3495.29, 'Mai': 2946.93, 'Jun': 3023.92, 'Jul': 3206.93, 'Ago': 3612.58, 'September': 3264.46, 'October': 3835.74, 'Nov': 3676.571, 'Dez': 3225.61, 'TOTAL': 3289.718}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'AMAZONAS', 'Jan': 20766.918, 'Fev': 21180.919, 'Mar': 242742.35199999998, 'Abr': 17615.604, 'Mai': 20258.2, 'Jun': 18741.344, 'Jul': 19604.023, 'Ago': 20221.674, 'September': 20792.616, 'October': 19912.898, 'Nov': 21869.338, 'Dez': 21145.643, 'TOTAL': 20633.175}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'RORAIMA', 'Jan': 3716.032, 'Fev': 3200.4, 'Mar': 3339.332, 'Abr': 43338.92900000001, 'Mai': 3259.3, 'Jun': 3636.216, 'Jul': 3631.569, 'Ago': 3348.416, 'September': 3394.016, 'October': 4078.616, 'Nov': 3346.616, 'Dez': 4029.9, 'TOTAL': 4358.516}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'PARÁ', 'Jan': 29755.907, 'Fev': 28661.951, 'Mar': 28145.784, 'Abr': 29294.796, 'Mai': 359575.3979999999, 'Jun': 28830.479, 'Jul': 32297.047, 'Ago': 27310.979, 'September': 29396.384, 'October': 26511.009, 'Nov': 36553.25, 'Dez': 31807.84, 'TOTAL': 31009.972}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'AMAPÁ', 'Jan': 4096.7, 'Fev': 4374.2, 'Mar': 3917.75, 'Abr': 3779.9, 'Mai': 4068.216, 'Jun': 46255.816000000006, 'Jul': 3456.35, 'Ago': 4092.25, 'September': 3395.6, 'October': 3613.7, 'Nov': 3533.05, 'Dez': 4387.1, 'TOTAL': 3541.0}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'TOCANTINS', 'Jan': 8046.45, 'Fev': 7734.34, 'Mar': 8267.903, 'Abr': 7398.315, 'Mai': 7153.283, 'Jun': 7522.171, 'Jul': 89082.367, 'Ago': 6961.518, 'September': 7027.916, 'October': 6616.28, 'Nov': 6699.691, 'Dez': 7174.92, 'TOTAL': 8479.58}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORDESTE', 'ESTADO': 'MARANHÃO', 'Jan': 19185.495, 'Fev': 18027.96, 'Mar': 18185.91, 'Abr': 19684.36, 'Mai': 17944.756, 'Jun': 17643.608, 'Jul': 17730.675, 'Ago': 211092.697, 'September': 16751.08, 'October': 17985.405, 'Nov': 15357.75, 'Dez': 15875.728, 'TOTAL': 16719.97}  ... displaying 10 of 4536 total bound parameter sets ...  {'COMBUSTÍVEL': 'GLP (m3)', 'ANO': 2020, 'REGIÃO': 'REGIÃO CENTRO-OESTE', 'ESTADO': 'GOIÁS', 'Jan': 53302.086956521736, 'Fev': 48894.62137681159, 'Mar': 47184.78804347826, 'Abr': 49687.793478260865, 'Mai': 52665.44927536231, 'Jun': 50069.0054347826, 'Jul': 48032.53079710145, 'Ago': None, 'September': None, 'October': None, 'Nov': 443268.7391304347, 'Dez': 46850.58514492753, 'TOTAL': 46581.8786231884}, {'COMBUSTÍVEL': 'GLP (m3)', 'ANO': 2020, 'REGIÃO': 'REGIÃO CENTRO-OESTE', 'ESTADO': 'DISTRITO FEDERAL', 'Jan': 13883.065217391302, 'Fev': 16011.333333333332, 'Mar': 15887.492753623188, 'Abr': 13463.27536231884, 'Mai': 15325.704710144926, 'Jun': 15689.914855072462, 'Jul': 15358.490942028984, 'Ago': 13937.451086956522, 'September': None, 'October': None, 'Nov': None, 'Dez': 133282.7028985507, 'TOTAL': 13725.974637681158})]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2022-08-25 00:18:28,470] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=Raizen, task_id=Step_01_Ingestion_Sheets_To_Stage, execution_date=20220822T230000, start_date=20220825T001732, end_date=20220825T001828
+[2022-08-25 00:18:28,583] {standard_task_runner.py:97} ERROR - Failed to execute job 9901 for task Step_01_Ingestion_Sheets_To_Stage ((pymysql.err.OperationalError) (1205, 'Lock wait timeout exceeded; try restarting transaction')
+[SQL: INSERT INTO stg_vendas_combustiveis (`COMBUSTÍVEL`, `ANO`, `REGIÃO`, `ESTADO`, `Jan`, `Fev`, `Mar`, `Abr`, `Mai`, `Jun`, `Jul`, `Ago`, `September`, `October`, `Nov`, `Dez`, `TOTAL`) VALUES (%(COMBUSTÍVEL)s, %(ANO)s, %(REGIÃO)s, %(ESTADO)s, %(Jan)s, %(Fev)s, %(Mar)s, %(Abr)s, %(Mai)s, %(Jun)s, %(Jul)s, %(Ago)s, %(September)s, %(October)s, %(Nov)s, %(Dez)s, %(TOTAL)s)]
+[parameters: ({'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'RONDÔNIA', 'Jan': 136073.25300000003, 'Fev': 9563.263, 'Mar': 11341.229, 'Abr': 9369.746, 'Mai': 10719.983, 'Jun': 11165.968, 'Jul': 12312.451, 'Ago': 11220.97, 'September': 12482.281, 'October': 13591.122, 'Nov': 11940.57, 'Dez': 11547.576, 'TOTAL': 10818.094}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'ACRE', 'Jan': 3358.346, 'Fev': 40001.852999999996, 'Mar': 3065.758, 'Abr': 3495.29, 'Mai': 2946.93, 'Jun': 3023.92, 'Jul': 3206.93, 'Ago': 3612.58, 'September': 3264.46, 'October': 3835.74, 'Nov': 3676.571, 'Dez': 3225.61, 'TOTAL': 3289.718}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'AMAZONAS', 'Jan': 20766.918, 'Fev': 21180.919, 'Mar': 242742.35199999998, 'Abr': 17615.604, 'Mai': 20258.2, 'Jun': 18741.344, 'Jul': 19604.023, 'Ago': 20221.674, 'September': 20792.616, 'October': 19912.898, 'Nov': 21869.338, 'Dez': 21145.643, 'TOTAL': 20633.175}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'RORAIMA', 'Jan': 3716.032, 'Fev': 3200.4, 'Mar': 3339.332, 'Abr': 43338.92900000001, 'Mai': 3259.3, 'Jun': 3636.216, 'Jul': 3631.569, 'Ago': 3348.416, 'September': 3394.016, 'October': 4078.616, 'Nov': 3346.616, 'Dez': 4029.9, 'TOTAL': 4358.516}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'PARÁ', 'Jan': 29755.907, 'Fev': 28661.951, 'Mar': 28145.784, 'Abr': 29294.796, 'Mai': 359575.3979999999, 'Jun': 28830.479, 'Jul': 32297.047, 'Ago': 27310.979, 'September': 29396.384, 'October': 26511.009, 'Nov': 36553.25, 'Dez': 31807.84, 'TOTAL': 31009.972}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'AMAPÁ', 'Jan': 4096.7, 'Fev': 4374.2, 'Mar': 3917.75, 'Abr': 3779.9, 'Mai': 4068.216, 'Jun': 46255.816000000006, 'Jul': 3456.35, 'Ago': 4092.25, 'September': 3395.6, 'October': 3613.7, 'Nov': 3533.05, 'Dez': 4387.1, 'TOTAL': 3541.0}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORTE', 'ESTADO': 'TOCANTINS', 'Jan': 8046.45, 'Fev': 7734.34, 'Mar': 8267.903, 'Abr': 7398.315, 'Mai': 7153.283, 'Jun': 7522.171, 'Jul': 89082.367, 'Ago': 6961.518, 'September': 7027.916, 'October': 6616.28, 'Nov': 6699.691, 'Dez': 7174.92, 'TOTAL': 8479.58}, {'COMBUSTÍVEL': 'GASOLINA C (m3)', 'ANO': 2000, 'REGIÃO': 'REGIÃO NORDESTE', 'ESTADO': 'MARANHÃO', 'Jan': 19185.495, 'Fev': 18027.96, 'Mar': 18185.91, 'Abr': 19684.36, 'Mai': 17944.756, 'Jun': 17643.608, 'Jul': 17730.675, 'Ago': 211092.697, 'September': 16751.08, 'October': 17985.405, 'Nov': 15357.75, 'Dez': 15875.728, 'TOTAL': 16719.97}  ... displaying 10 of 4536 total bound parameter sets ...  {'COMBUSTÍVEL': 'GLP (m3)', 'ANO': 2020, 'REGIÃO': 'REGIÃO CENTRO-OESTE', 'ESTADO': 'GOIÁS', 'Jan': 53302.086956521736, 'Fev': 48894.62137681159, 'Mar': 47184.78804347826, 'Abr': 49687.793478260865, 'Mai': 52665.44927536231, 'Jun': 50069.0054347826, 'Jul': 48032.53079710145, 'Ago': None, 'September': None, 'October': None, 'Nov': 443268.7391304347, 'Dez': 46850.58514492753, 'TOTAL': 46581.8786231884}, {'COMBUSTÍVEL': 'GLP (m3)', 'ANO': 2020, 'REGIÃO': 'REGIÃO CENTRO-OESTE', 'ESTADO': 'DISTRITO FEDERAL', 'Jan': 13883.065217391302, 'Fev': 16011.333333333332, 'Mar': 15887.492753623188, 'Abr': 13463.27536231884, 'Mai': 15325.704710144926, 'Jun': 15689.914855072462, 'Jul': 15358.490942028984, 'Ago': 13937.451086956522, 'September': None, 'October': None, 'Nov': None, 'Dez': 133282.7028985507, 'TOTAL': 13725.974637681158})]
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 248)
+[2022-08-25 00:18:28,606] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-25 00:18:28,670] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,32 @@
+[2022-08-23 18:18:40,880] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.conecta_no_mysql scheduled__2022-01-19T08:00:00+00:00 [queued]>
+[2022-08-23 18:18:40,888] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: raizen_lab_01.conecta_no_mysql scheduled__2022-01-19T08:00:00+00:00 [queued]>
+[2022-08-23 18:18:40,889] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 18:18:40,889] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2022-08-23 18:18:40,889] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-08-23 18:18:40,904] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): conecta_no_mysql> on 2022-01-19 08:00:00+00:00
+[2022-08-23 18:18:40,910] {standard_task_runner.py:52} INFO - Started process 530 to run task
+[2022-08-23 18:18:40,913] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'raizen_lab_01', 'conecta_no_mysql', 'scheduled__2022-01-19T08:00:00+00:00', '--job-id', '8848', '--raw', '--subdir', 'DAGS_FOLDER/raizen_lab_01.py', '--cfg-path', '/tmp/tmpbg2kt5td', '--error-file', '/tmp/tmpghohyts_']
+[2022-08-23 18:18:40,915] {standard_task_runner.py:80} INFO - Job 8848: Subtask conecta_no_mysql
+[2022-08-23 18:18:40,978] {task_command.py:371} INFO - Running <TaskInstance: raizen_lab_01.conecta_no_mysql scheduled__2022-01-19T08:00:00+00:00 [running]> on host 899469bfc0f5
+[2022-08-23 18:18:41,055] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=admin
+AIRFLOW_CTX_DAG_ID=raizen_lab_01
+AIRFLOW_CTX_TASK_ID=conecta_no_mysql
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-19T08:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-01-19T08:00:00+00:00
+[2022-08-23 18:18:41,073] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/raizen_lab_01.py", line 36, in conecta_no_mysql
+    con.select_db('CREATE TABLE db.TESTE(COL1 VARCHAR(40))')
+MySQLdb.OperationalError: (1049, "Unknown database 'create table db.teste(col1 varchar(40))'")
+[2022-08-23 18:18:41,083] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=raizen_lab_01, task_id=conecta_no_mysql, execution_date=20220119T080000, start_date=20220823T181840, end_date=20220823T181841
+[2022-08-23 18:18:41,095] {standard_task_runner.py:97} ERROR - Failed to execute job 8848 for task conecta_no_mysql ((1049, "Unknown database 'create table db.teste(col1 varchar(40))'"); 530)
+[2022-08-23 18:18:41,126] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-08-23 18:18:41,170] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
